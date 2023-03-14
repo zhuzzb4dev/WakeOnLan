@@ -1,5 +1,5 @@
 wake:
   ip: 192.168.1.255
   mac: 2A-08-A0-10-02-8F
-  clint: 001ab2d588fe4057a0d402724ee5ca58
+  client: 001ab2d588fe4057a0d402724ee5ca58
   topic: DESKTOP001

@@ -24,6 +24,7 @@ public class WakeOnLanApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WakeOnLanApplication.class, args);
+        System.out.println("服务启动成功");
     }
 
     public static final int PORT = 9;
@@ -31,8 +32,8 @@ public class WakeOnLanApplication {
     private String ipStr;
     @Value("${wake.mac}")
     private String macStr;
-    @Value("${wake.clint}")
-    private String clintId;
+    @Value("${wake.client}")
+    private String client;
     @Value("${wake.topic}")
     private String topic;
 
@@ -88,7 +89,7 @@ public class WakeOnLanApplication {
     @Bean
     public MessageProducer inbound() {
         MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter("tcp://bemfa.com:9501", clintId,
+                new MqttPahoMessageDrivenChannelAdapter("tcp://bemfa.com:9501", client,
                         topic);
         adapter.setCompletionTimeout(5000);
         adapter.setConverter(new DefaultPahoMessageConverter());
